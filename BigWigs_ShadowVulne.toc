@@ -1,0 +1,23 @@
+## Interface: 11200
+## Title: Big Wigs |cffff0000+|r|cffffffffShadowVulne|r
+## Notes: Timer for priest shadow vulnerability
+## Author: Hosq
+## X-Category: Raid
+## Version: 1
+## Dependencies: BigWigs
+## OptionalDeps: Ace2, SpellStatusLib, SpellCacheLib, GratuityLib, Deformat
+## SavedVariables: BigWigsShadowVulneDB
+## X-BigWigs-LoadWithCore: 1
+
+Libs\AceLibrary\AceLibrary.lua
+Libs\AceHook-2.1\AceHook-2.1.lua
+Libs\AceEvent-2.0\AceEvent-2.0.lua
+Libs\AceDebug-2.0\AceDebug-2.0.lua
+
+Libs\Deformat-2.0\Deformat-2.0.lua
+Libs\Gratuity-2.0\Gratuity-2.0.lua
+Libs\SpellCache-1.0\SpellCache-1.0.lua
+Libs\SpellStatus-1.0\SpellStatus-1.0.lua 
+
+BigWigs_ShadowVulne.lua
+
