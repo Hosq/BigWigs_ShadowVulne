@@ -23,7 +23,7 @@ L:RegisterTranslations("enUS", function() return {
 	["Only show timer for the current target."] = true,
 	["Show anchor"] = true,
 	["Show the bar anchor frame."] = true,
-	
+
 	shadowvuln_test = "^(.+) is afflicted by Shadow Vulnerability.",
 	swpResist_test	= "^Your Shadow Word: Pain was resisted by (.+).",
 	mindblast_test = "^Your Mind Blast (%a%a?)\its (.+) for",
@@ -130,13 +130,13 @@ end
 
 function BigWigsShadowVulne:PlayerDamageEvents(msg)
 	if self.db.profile.enable then
-		local start, ending, victim = string.find(msg, L["shadowvuln_test"])
-		if victim and UnitName("target") == victim then
-			--self:DebugMessage("Shadow vulne - ".. victim)
-			self.debuffs[victim] = GetTime()
-			BigWigsScorchTimer:StartBar(victim, timer.vulne, "Interface\\Icons\\Spell_Shadow_BlackPlague")
-		end
-		
+		--local start, ending, victim = string.find(msg, L["shadowvuln_test"])
+		--if victim and UnitName("target") == victim then
+		--self:DebugMessage("Shadow vulne - ".. victim)
+		--	self.debuffs[victim] = GetTime()
+		--	BigWigsScorchTimer:StartBar(victim, timer.vulne, "Interface\\Icons\\Spell_Shadow_BlackPlague")
+		--end
+
 		local start, ending, _, victim = string.find(msg, L["mindblast_test"])
 		if victim then
 			--self:DebugMessage("MindBlast - ".. victim)
@@ -150,21 +150,21 @@ function BigWigsShadowVulne:PlayerDamageEvents(msg)
 			self.lastResist = GetTime()
 			self:CancelScheduledEvent("ShadowVulneDelayedBar")
 		end
-		
+
 		local start, ending, victim = string.find(msg, L["swpResist_test"])
 		if victim then
 			--self:DebugMessage("swp resist - ".. victim.." "..GetTime())
 			self.lastResist = GetTime()
 			self:CancelScheduledEvent("ShadowVulneDelayedBar")
 		end
-		
+
 		local start, ending, victim = string.find(msg, L["mindflay_test"])
 		if victim then
 			--self:DebugMessage("mindflay resist - ".. victim.." "..GetTime())
 			self.lastResist = GetTime()
 			self:CancelScheduledEvent("ShadowVulneDelayedBar")
 		end
-		
+
 	end
 end
 
